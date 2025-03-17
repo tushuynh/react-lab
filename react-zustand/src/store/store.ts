@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Store } from '@/types/store';
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
@@ -10,8 +11,14 @@ export const useStore = create<Store>()(
     persist(
       subscribeWithSelector(
         immer((...rest) => ({
-          ...createUserSlice(...rest),
-          ...createCartSlice(...rest),
+          ...createUserSlice(
+            // @ts-expect-error
+            ...rest,
+          ),
+          ...createCartSlice(
+            // @ts-expect-error
+            ...rest,
+          ),
         })),
       ),
       {
