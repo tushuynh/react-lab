@@ -1,3 +1,4 @@
+import { Store } from '@/types/store';
 import { StateCreator } from 'zustand';
 
 type UserState = {
@@ -15,7 +16,7 @@ type UserActions = {
 export type UserSlice = UserState & UserActions;
 
 export const createUserSlice: StateCreator<
-  UserSlice,
+  Store,
   [['zustand/immer', never]],
   [],
   UserSlice
